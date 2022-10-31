@@ -29,11 +29,8 @@ def predict():
 # y_pred = model.predict(X)[0]
 # print('input', customer)
 # print(f'price_range {y_pred} with probability {y_pred_proba}')
-
-
-def ping():
-    return "PONG"
-
+# def ping():
+#     return "PONG"
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=9696)
