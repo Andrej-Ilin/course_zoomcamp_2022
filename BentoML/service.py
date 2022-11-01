@@ -13,3 +13,4 @@ def classify(application_data):
     prediction = model_runner.predict.run(vector)
     return {"status_range": "200"}
 
+# bentoml serve service.py:svc --reload
