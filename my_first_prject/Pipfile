@@ -8,6 +8,7 @@ waitress = "*"
 scikit-learn = "*"
 flask = "*"
 catboost = "*"
+docker = "*"
 
 [dev-packages]
 
