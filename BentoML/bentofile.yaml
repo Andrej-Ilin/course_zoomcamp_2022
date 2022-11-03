@@ -1,0 +1,6 @@
+service: "service.py:svc"
+
+include:
+  - "service.py:svc"
+#python:
+#  packages:

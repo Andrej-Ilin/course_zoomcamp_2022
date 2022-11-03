@@ -11,6 +11,16 @@ svc = bentoml.Service("predict_classifier", runners=[model_runner])
 def classify(application_data):
     vector = dv.transform(application_data)
     prediction = model_runner.predict.run(vector)
-    return {"status_range": "200"}
+    # return {"status_range": "200"}
+    result = {
+     # 'probability': y_pred_proba,
+        'price': prediction[0][0]
+            }
+    return result
 
 # bentoml serve service.py:svc --reload
+# bentoml models list
+# bentoml models get price_range:g3hqcvkz4sxiz2bk      описание признаков модели
+# \GitHub\course_zoomcamp_2022\BentoML>bentoml build
+# \course_zoomcamp_2022\BentoML>bentoml containerize predict_classifier:yqnybks2sgqof2bk
+# docker run -it --rm -p 3000:3000 predict_classifier:yqnybks2sgqof2bk
