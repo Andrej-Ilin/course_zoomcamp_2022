@@ -1,5 +1,6 @@
 import numpy as np
-import tflite_runtime.interpreter as tflite
+import tensorflow.lite as tflite
+# import tflite_runtime.interpreter as tflite
 
 from io import BytesIO
 from urllib import request
@@ -46,7 +47,7 @@ def predict(url):
     interpreter.invoke()
     preds = interpreter.get_tensor(output_index)
     preds = preds[0].tolist()
-    return preds
+    return preds[0]
 
 
 def lambda_handler(event, context):
