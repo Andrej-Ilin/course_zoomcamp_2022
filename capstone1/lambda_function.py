@@ -11,13 +11,13 @@ interpreter.allocate_tensors()
 input_index = interpreter.get_input_details()[0]['index']
 output_index = interpreter.get_output_details()[0]['index']
 
-with open("classes", "rb") as fp:   # Unpickling
+with open("classes", "rb") as fp:  # Unpickling
     classes = pickle.load(fp)
-
 
 url = 'https://glorypets.ru/wp-content/uploads/2020/07/1-tsarstvennost.jpg'
 
 
+# url = 'https://sun9-79.userapi.com/c11422/u1430261/148960630/x_b6d7669e.jpg'
 
 def predict(url):
     X = preprocessor.from_url(url)
@@ -27,10 +27,13 @@ def predict(url):
     preds = interpreter.get_tensor(output_index)
 
     ind = np.argpartition(preds[0], -2)[-2:]
-    print(ind)
-    float_predictions = preds[0].tolist()
-
-    return dict(zip(classes, float_predictions))
+    if np.diff(preds[0][ind]) > 0.8:  # if clear the breed
+        return {classes[np.argmax(preds[0])]: np.max(preds)}
+    else:  # half breed
+        h_breed = {}
+        for i in ind:
+            h_breed[classes[i]] = preds[0][i]
+        return h_breed
 
 
 def lambda_handler(event, context):
@@ -39,5 +42,3 @@ def lambda_handler(event, context):
     return result
 
 
-
-#%%
