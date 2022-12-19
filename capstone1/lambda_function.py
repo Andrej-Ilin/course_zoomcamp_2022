@@ -3,6 +3,12 @@ from keras_image_helper import create_preprocessor
 import pickle
 import numpy as np
 
+import os
+from sanic import Sanic
+from sanic.response import text
+
+app = Sanic(__name__)
+
 preprocessor = create_preprocessor('xception', target_size=(224, 224))
 
 interpreter = tflite.Interpreter(model_path='model_0.936.tflite')
@@ -41,4 +47,5 @@ def lambda_handler(event, context):
     result = predict(url)
     return result
 
-
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=os.environ['PORT'], motd=False, access_log=False)
