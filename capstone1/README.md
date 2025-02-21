@@ -64,10 +64,7 @@ ___
 
 ### 8. **Model Deployment**:
    - The final model is saved as `model_v1_07_0.936.h5`, and the weights are saved in `.tflite` format for efficient inference on devices with lower computational resources.
-
-### 9. **Mistake in Code**:
-   - There is a **NameError** in this line: `for i in ind:` because `ind` is not defined at that point. It should be placed after the `ind = np.argpartition(preds[0], -2)[-2:]` line, ensuring that `ind` is defined first.
-
+     
 ### Key Points:
 - **Transfer Learning**: The Xception model, pretrained on ImageNet, is used as a feature extractor.
 - **Data Augmentation**: ImageDataGenerator is used to preprocess and augment the images.
