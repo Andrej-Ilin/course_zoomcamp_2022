@@ -26,8 +26,7 @@
 *Yoy can replace link images in test.py*
 
 ___
-  
-This code performs several operations related to training and deploying a deep learning model using TensorFlow and Keras for image classification. Here’s a breakdown of the different parts:
+  In the [train.ipynb](https://github.com/Andrej-Ilin/course_zoomcamp_2022/blob/main/capstone1/train.ipynb) a code performs several operations related to training and deploying a deep learning model using TensorFlow and Keras for image classification. Here’s a breakdown of the different parts:
 
 ### 1. **Importing Libraries and Initial Setup**:
    - **TensorFlow** is imported for building and training deep learning models.
