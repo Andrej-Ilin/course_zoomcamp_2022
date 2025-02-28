@@ -69,5 +69,4 @@ ___
 - **Transfer Learning**: The Xception model, pretrained on ImageNet, is used as a feature extractor.
 - **Data Augmentation**: ImageDataGenerator is used to preprocess and augment the images.
 - **Model Saving**: The model is saved in both `.h5` and `.tflite` formats for later use.
-- **Error Handling**: Warnings regarding missing libraries (like CUDA libraries) are displayed but are typically ignorable if you don’t have the appropriate hardware.
   
