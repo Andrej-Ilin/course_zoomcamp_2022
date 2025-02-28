@@ -63,7 +63,7 @@ ___
    - There are warnings and errors related to TensorFlow and CUDA libraries, such as missing `libcudart.so.11.0` and `libnvinfer.so.7` files. These are related to GPU acceleration, which can be ignored if you are not using a GPU or if the appropriate libraries are not available.
 
 ### 8. **Model Deployment**:
-   - The final model is saved as `model_v1_07_0.936.h5`, and the weights are saved in `.tflite` format for efficient inference on devices with lower computational resources.
+   - The final model is saved as `model_v1_07_0.936.h5`, and the weights are saved in `.tflite` format for efficient inference on devices with lower computational resources. As an example of the implementation, you can look at [lambda_function.py](https://github.com/Andrej-Ilin/course_zoomcamp_2022/blob/main/capstone1/lambda_function.py)
      
 ### Key Points:
 - **Transfer Learning**: The Xception model, pretrained on ImageNet, is used as a feature extractor.
